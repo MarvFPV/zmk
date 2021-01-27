@@ -42,30 +42,41 @@
 };
 
 / {
+	    behaviors {
+        am: alpha_mods {
+            compatible = "zmk,behavior-hold-tap";
+            label = "ALPHA_MODS";
+            #binding-cells = <2>;
+            tapping_term_ms = <150>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+        };
+    };
+
 	keymap {
 		compatible = "zmk,keymap";
 		
 		default_layer {
 			bindings = <
 	&kp Q            &kp W         &kp E         &kp R         &kp T            &kp Y            &kp U            &kp I            &kp O            &kp P   
-	&mt LCTRL A      &kp S         &kp D         &kp F         &kp G            &kp H            &kp J            &kp K            &kp L            &kp SEMI
-	&mt LSHFT Z      &kp X         &kp C         &kp V         &lt BLUETOOTH B  &kp N            &kp M            &kp CMMA         &mt RSHFT DOT         
+	&am LCTRL A      &kp S         &kp D         &kp F         &kp G            &kp H            &kp J            &kp K            &kp L            &kp SEMI
+	&am LSHFT Z      &kp X         &kp C         &kp V         &lt BLUETOOTH B  &kp N            &kp M            &kp CMMA         &am RSHFT DOT         
     &kp LCTRL        &mo NAV                                   &lt NUMSYM SPACE                                                    &kp RALT         &kp RGUI   
 			>;
 		};
 		numsym_layer {
 			bindings = <
 	&kp N1           &kp N2        &kp N3        &kp N4        &kp N5           &kp N6           &kp N7           &kp N8           &kp N9           &kp N0   
-	&mt LCTRL EXCL   &kp AT        &kp HASH      &kp DLLR      &kp PERCENT      &kp QUESTION     &kp PLUS         &kp MINUS        &kp KP_ASTERISK  &kp KP_SLASH
-	&mt LSHFT LBRC   &kp LPAR      &kp RPAR      &kp RBRC      &trans           &kp BACKSLASH    &kp SEMICOLON    &kp SQT          &mt RSHFT EQUAL         
+	&am LCTRL EXCL   &kp AT        &kp HASH      &kp DLLR      &kp PERCENT      &kp QUESTION     &kp PLUS         &kp MINUS        &kp KP_ASTERISK  &kp KP_SLASH
+	&am LSHFT LBRC   &kp LPAR      &kp RPAR      &kp RBRC      &trans           &kp BACKSLASH    &kp SEMICOLON    &kp SQT          &am RSHFT EQUAL         
     &trans           &trans                                    &trans                                                              &trans           &trans   
 			>;
 		};
 		nav_layer {
 			bindings = <
 	&kp F1           &kp F2        &kp F3        &kp F4        &none            &none            &kp LC(LEFT)     &kp UP           &kp LC(RIGHT)    &none   
-	&mt LCTRL F5     &kp F6        &kp F7        &kp F8        &none            &none            &kp LEFT         &kp DOWN         &kp RIGHT        &none
-	&mt LSHFT F9     &kp F10       &kp F11       &kp F12       &trans           &kp C_PREV       &kp C_PP         &kp C_NEXT       &kp C_VOL_UP         
+	&am LCTRL F5     &kp F6        &kp F7        &kp F8        &none            &none            &kp LEFT         &kp DOWN         &kp RIGHT        &none
+	&am LSHFT F9     &kp F10       &kp F11       &kp F12       &trans           &kp C_PREV       &kp C_PP         &kp C_NEXT       &kp C_VOL_UP         
     &trans           &trans                                    &trans                                                              &trans           &kp C_VOL_DN   
 			>;
 		};
