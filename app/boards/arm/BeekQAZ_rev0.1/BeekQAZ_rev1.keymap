@@ -52,8 +52,8 @@
             compatible = "zmk,behavior-hold-tap";
             label = "ALPHA_MODS";
             #binding-cells = <2>;
-            tapping_term_ms = <250>;
-            flavor = "balanced";
+            tapping_term_ms = <200>;
+            flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
     };
@@ -63,8 +63,8 @@
 		
 		default_layer {
 			bindings = <
-	&kp Q            &kp W         &kp E         &kp R         &kp T            &kp Y            &kp U            &kp I            &kp O            &kp P   
-	&am LCTRL A      &kp S         &kp D         &kp F         &kp G            &kp H            &kp J            &kp K            &kp L            &kp SEMI
+	&kp Q            &kp W         &kp E         &kp R         &kp T            &kp Y            &kp U            &kp I            &kp O            &kp P
+    &am LCTRL A      &kp S         &kp D         &kp F         &kp G            &kp H            &kp J            &kp K            &kp L            &kp SEMI
 	&am LSHFT Z      &kp X         &kp C         &kp V         &lt BLUETOOTH B  &kp N            &kp M            &kp CMMA         &am RSHFT DOT         
     &kp LALT        &mo NAV                                   &lt NUMSYM SPACE                                                    &kp RALT         &kp RGUI   
 			>;
