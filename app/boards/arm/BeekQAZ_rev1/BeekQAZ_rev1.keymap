@@ -7,9 +7,12 @@
 
 #define DEFAULT 	0
 #define NUMSYM 		1
-#define NAV			2	
-#define BLUETOOTH	3
-#define GAMING 	 	4
+#define BLUETOOTH	2
+#define GAMING 	 	3
+#define NAV			4	
+
+#define screenshot LS(LG(S))
+
 
 / {
 	combos {
@@ -83,14 +86,6 @@
     &trans           &trans                                    &trans                                                              &trans           &trans   
 			>;
 		};
-		nav_layer {
-			bindings = <
-	&kp F1           &kp F2        &kp F3        &kp F4        &none            &none            &kp LC(LEFT)     &kp UP           &kp LC(RIGHT)    &none   
-	&am LCTRL F5     &kp F6        &kp F7        &kp F8        &none            &none            &kp LEFT         &kp DOWN         &kp RIGHT        &none
-	&am LSHFT F9     &kp F10       &kp F11       &kp F12       &trans           &kp C_PREV       &kp C_PP         &kp C_NEXT       &kp C_VOL_UP         
-    &trans           &trans                                    &trans                                                              &kp C_VOL_DN     &kp C_VOL_DN   
-			>;
-		};
 		bluetooth_layer {
 			bindings = <
 	&bootloader      &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3     &bt BT_SEL 4     &none           &none             &none            &bt BT_DIS
@@ -105,6 +100,14 @@
     &kp TAB          &kp L         &kp A         &kp S         &kp D            &kp F            &kp G            &kp H            &kp J            &kp K
 	&kp LSHFT        &kp COMMA     &kp Z         &kp X         &kp C            &kp V            &kp B            &kp N            &kp M         
     &kp LALT         &kp LCTRL                                 &kp SPACE                                                           &mo NAV           &mo NAV
+			>;
+		};
+		nav_layer {
+			bindings = <
+	&kp F1           &kp F2        &kp F3        &kp F4        &none            &none            &kp LC(LEFT)     &kp UP           &kp LC(RIGHT)    &kp screenshot   
+	&am LCTRL F5     &kp F6        &kp F7        &kp F8        &none            &none            &kp LEFT         &kp DOWN         &kp RIGHT        &none
+	&am LSHFT F9     &kp F10       &kp F11       &kp F12       &trans           &kp C_PREV       &kp C_PP         &kp C_NEXT       &kp C_VOL_UP         
+    &trans           &trans                                    &trans                                                              &kp C_VOL_DN     &kp C_VOL_DN   
 			>;
 		};
 	};

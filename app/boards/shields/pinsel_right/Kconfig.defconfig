@@ -4,6 +4,6 @@
 if SHIELD_PINSEL_RIGHT
 
 config ZMK_KEYBOARD_NAME
-    default "PINSEL"
+    default "PINSEL_RIGHT"
 
 endif
