@@ -68,6 +68,7 @@ void send_position_state_callback(struct k_work *work) {
 
 K_WORK_DEFINE(service_position_notify_work, send_position_state_callback);
 
+//now i think this is the juice
 int send_position_state() {
     int err = k_msgq_put(&position_state_msgq, position_state, K_MSEC(100));
     if (err) {
@@ -85,20 +86,22 @@ int send_position_state() {
     }
 
     k_work_submit_to_queue(&service_work_q, &service_position_notify_work);
-
     return 0;
 }
 
+//universal
 int zmk_split_bt_position_pressed(uint8_t position) {
     WRITE_BIT(position_state[position / 8], position % 8, true);
     return send_position_state();
 }
 
+//universal
 int zmk_split_bt_position_released(uint8_t position) {
     WRITE_BIT(position_state[position / 8], position % 8, false);
     return send_position_state();
 }
 
+//Bluetooth relevant , tho the work queue will be interesting
 int service_init(const struct device *_arg) {
     k_work_q_start(&service_work_q, service_q_stack, K_THREAD_STACK_SIZEOF(service_q_stack),
                    CONFIG_ZMK_SPLIT_BLE_PERIPHERAL_PRIORITY);
@@ -106,4 +109,6 @@ int service_init(const struct device *_arg) {
     return 0;
 }
 
+
+// Not sure, probably important, will keep 
 SYS_INIT(service_init, APPLICATION, CONFIG_ZMK_BLE_INIT_PRIORITY);

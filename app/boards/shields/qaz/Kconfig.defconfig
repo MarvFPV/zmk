@@ -1,9 +1,9 @@
 # Copyright (c) 2020 The ZMK Contributors
 # SPDX-License-Identifier: MIT
 
-if SHIELD_PINSEL_RIGHT
+if SHIELD_QAZ
 
 config ZMK_KEYBOARD_NAME
-    default "PINSEL"
+    default "QAZ"
 
 endif

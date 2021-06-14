@@ -6,4 +6,7 @@ if SHIELD_PINSEL_RIGHT
 config ZMK_KEYBOARD_NAME
     default "PINSEL_RIGHT"
 
+config ZMK_USB
+	default y
+
 endif
